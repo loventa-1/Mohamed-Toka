@@ -518,6 +518,135 @@ body {
   margin-right: 6px;
 }
 
+/* ========================================
+   NEW FOOTER STYLES
+   ======================================== */
+.footer-section {
+  margin-top: 2.5rem;
+  padding-top: 1.8rem;
+  border-top: 2px solid rgba(200, 159, 155, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.footer-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem 1.2rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  text-decoration: none;
+  transition: var(--transition-romantic);
+  color: #1a2a3f;
+  background: rgba(26, 42, 63, 0.05);
+  border: 1px solid transparent;
+}
+
+.social-link i {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  background: white;
+}
+
+.social-link:hover i {
+  transform: scale(1.1);
+}
+
+/* واتساب */
+.social-link.whatsapp {
+  color: #25D366;
+}
+.social-link.whatsapp:hover {
+  border-color: #25D366;
+  background: rgba(37, 211, 102, 0.08);
+}
+
+/* تيك توك */
+.social-link.tiktok {
+  color: #000000;
+}
+.social-link.tiktok:hover {
+  border-color: #000000;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* انستجرام - تدرج لوني */
+.social-link.instagram {
+  color: #E4405F;
+}
+.social-link.instagram:hover {
+  border-color: #E4405F;
+  background: rgba(228, 64, 95, 0.08);
+}
+
+/* فيس بوك */
+.social-link.facebook {
+  color: #1877F2;
+}
+.social-link.facebook:hover {
+  border-color: #1877F2;
+  background: rgba(24, 119, 242, 0.08);
+}
+
+/* رقم التليفون */
+.footer-phone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--midnight-navy);
+  background: rgba(26, 42, 63, 0.04);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  border: 1px solid rgba(26, 42, 63, 0.08);
+  transition: var(--transition-romantic);
+  cursor: pointer;
+}
+
+.footer-phone:hover {
+  background: rgba(26, 42, 63, 0.08);
+  transform: scale(1.02);
+}
+
+.footer-phone i {
+  color: var(--gold-accent);
+  font-size: 1rem;
+}
+
+/* جملة التصميم */
+.footer-credit {
+  font-size: 0.8rem;
+  color: var(--soft-charcoal);
+  font-family: var(--font-sans);
+  letter-spacing: 0.3px;
+  opacity: 0.7;
+}
+
+.footer-credit .loventa {
+  color: var(--dusty-rose);
+  font-weight: 600;
+  font-style: italic;
+}
+
 /* Responsive for mobile */
 @media (max-width: 550px) {
   .date-block {
@@ -535,6 +664,28 @@ body {
 
   .location-detail {
     font-size: 0.75rem;
+  }
+
+  .footer-social-links {
+    gap: 0.6rem;
+  }
+
+  .social-link {
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .social-link span {
+    display: none; /* إخفاء النص في الموبايل للاختصار */
+  }
+
+  .social-link i {
+    font-size: 1.3rem;
+  }
+
+  .footer-phone {
+    font-size: 0.8rem;
+    padding: 0.4rem 1.2rem;
   }
 }
 

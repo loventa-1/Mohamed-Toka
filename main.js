@@ -4,18 +4,28 @@ const CONFIG = {
   brideName: "Toka",
   // Henna Date
   hennaDate: "Monday, July 27th, 2026",
-  hennaTime: "6:00 PM",
+  hennaTime: "8:00 PM",
   hennaLocation: "At House",
   // Wedding Date
   weddingDate: "Wednesday, July 29th, 2026",
-  weddingTime: "6:00 PM",
+  weddingTime: "9:00 PM",
   weddingLocation: "Villa Noor Hall",
   venueMapLink:
     "https://www.google.com/maps/place/Villa+NOOR/@30.9391481,31.1407716,19.25z/data=!4m23!1m16!4m15!1m6!1m2!1s0x14f7bb4d2aa1877b:0x6b9caf7bbe867370!2z2KfZhNmF2K3ZhNipINin2YTZg9io2LHZidiMINin2YTZhdit2YTYqSDYp9mE2YPYqNix2YkgKNmC2LPZhSAyKdiMINmF2LHZg9iyINin2YTZhdit2YTZhyDYp9mE2YPYqNix2YnYjCDZhdit2KfZgdi42Kkg2KfZhNi62LHYqNmK2Kk!2m2!1d31.168083!2d30.9696706!1m6!1m2!1s0x14f7bb006e390295:0x3119ac5963e897e6!2zVmlsbGEgTk9PUtiMIFc0UVIrUjYz2Iwg2KjZhNmC2YrZhtin2Iwg2YXYsdmD2LIg2KfZhNmF2K3ZhNmHINin2YTZg9io2LHZidiMINmF2K3Yp9mB2LjYqSDYp9mE2LrYsdio2YrYqSA2NzMzNTQy!2m2!1d31.140364!2d30.939258!3e9!3m5!1s0x14f7bb006e390295:0x3119ac5963e897e6!8m2!3d30.939258!4d31.140364!16s%2Fg%2F11vz29h609?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D",
   imageUrl: "assets/images/WhatsApp Image 2026-04-21 at 4.00.34 AM.jpeg",
   musicUrl:
     "assets/music/SpotiDown.App - Edkhely Omri - Hussain Aljassmi-[AudioTrimmer.com].mp3",
-  romanticMessage: "Our story begins… and you’re part of it ❤️",
+  romanticMessage: "Our story begins… and you're part of it ❤️",
+
+  // ===== NEW: SOCIAL LINKS =====
+  socialLinks: {
+    whatsapp: "https://wa.me/201505646406", // ضع رقمك هنا
+    tiktok: "https://www.tiktok.com/@loventa68", // ضع رابط حسابك
+    instagram: "https://www.instagram.com/love__nta", // ضع رابط حسابك
+    facebook:
+      "https://www.facebook.com/profile.php?id=61565289157594&mibextid=wwXIfr&rdid=LvOEQfQIXRkCukV0&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Ck7EUrzmW%2F%3Fmibextid%3DwwXIfr#", // ضع رابط حسابك
+    phone: "+201505646406", // رقم التليفون
+  },
 };
 
 // DOM elements
@@ -82,7 +92,7 @@ function applyDynamicContent() {
   // Update message
   const msgParagraph = document.querySelector(".message-card p");
   if (msgParagraph) {
-    msgParagraph.innerHTML = `✨ “${CONFIG.romanticMessage}” ✨`;
+    msgParagraph.innerHTML = `✨ "${CONFIG.romanticMessage}" ✨`;
   }
 
   // Update image source
@@ -107,6 +117,54 @@ function applyDynamicContent() {
         locationBtn.style.transform = "";
       }, 150);
     };
+  }
+
+  // ===== NEW: Apply social links =====
+  applySocialLinks();
+}
+
+// ===== NEW FUNCTION: Apply Social Links =====
+function applySocialLinks() {
+  const links = CONFIG.socialLinks;
+
+  // WhatsApp
+  const whatsappLink = document.getElementById("whatsappLink");
+  if (whatsappLink) {
+    whatsappLink.href = links.whatsapp;
+  }
+
+  // TikTok
+  const tiktokLink = document.getElementById("tiktokLink");
+  if (tiktokLink) {
+    tiktokLink.href = links.tiktok;
+  }
+
+  // Instagram
+  const instagramLink = document.getElementById("instagramLink");
+  if (instagramLink) {
+    instagramLink.href = links.instagram;
+  }
+
+  // Facebook
+  const facebookLink = document.getElementById("facebookLink");
+  if (facebookLink) {
+    facebookLink.href = links.facebook;
+  }
+
+  // Phone number
+  const phoneNumberSpan = document.getElementById("phoneNumber");
+  if (phoneNumberSpan) {
+    phoneNumberSpan.textContent = links.phone;
+  }
+
+  // Make phone number clickable (opens dialer)
+  const phoneDisplay = document.getElementById("phoneDisplay");
+  if (phoneDisplay) {
+    phoneDisplay.style.cursor = "pointer";
+    phoneDisplay.addEventListener("click", function () {
+      const cleanPhone = links.phone.replace(/[^0-9+]/g, "");
+      window.location.href = `tel:${cleanPhone}`;
+    });
   }
 }
 
